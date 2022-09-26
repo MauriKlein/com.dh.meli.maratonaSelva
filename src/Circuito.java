@@ -11,12 +11,15 @@ public class Circuito {
         this.listaInscricoes = new ArrayList<>();
     }
 
+
+
     public void adicionarInscricao(Inscricao inscricao){
         if(inscricao.getCategoria().equals(this.categoria)) {
             if (!(inscricao.getMaratonista().getIdade() < 18 && inscricao.getCategoria().equals(Categoria.AVANCADO))) {
                 if (!listaInscricoes.contains(inscricao)) {
+                    //Aqui está sendo gerado o incremento do código de cada inscrição
                     inscricao.getMaratonista().setCodigo(listaInscricoes.size() + 1);
-                    listaInscricoes.add(inscricao);
+                    this.listaInscricoes.add(inscricao);
                     System.out.println(inscricao.getMaratonista().getNome() + " Inscrito na Circuito " + this.categoria + " Valor Inscrição: " + inscricao.getValorInscricao());
                 } else {
                     System.out.println("ATENÇÃO: " + inscricao.getMaratonista().getNome() + " Já está inscrito na Circuito " + this.categoria);
